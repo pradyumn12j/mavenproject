@@ -14,11 +14,11 @@ stage('execute unit test framework')
     sh 'mvn test'   // valitade , compile then run test
 }} }
 
-stage('generate artifact and store in local maven repository')
-{steps {withMaven(globalMavenSettingsConfig: '', jdk: 'JAVA_HOME', maven: 'MAVEN_HOME', mavenSettingsConfig: '', traceability: true) 
-{
-    sh 'mvn clean install -DskipTests'    //skip test, it also generates artifact, clean the workspace folder
-}} }
+//stage('generate artifact and store in local maven repository')
+//{steps {withMaven(globalMavenSettingsConfig: '', jdk: 'JAVA_HOME', maven: 'MAVEN_HOME', mavenSettingsConfig: '', traceability: true) 
+//{
+  //  sh 'mvn clean install -DskipTests'    //skip test, it also generates artifact, clean the workspace folder
+//}} }
 //stage("deploy to tomcat dev")
       //  {
        // steps{sshagent (credentials: ['dev-deployments-v3']) {
