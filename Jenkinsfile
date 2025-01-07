@@ -5,7 +5,7 @@ stages
 {
 
 stage ('scm checkout')
-{steps {  git branch: 'master', url: 'https://github.com/prakashk0301/mavenproject'   }}
+{steps {  git branch: 'master', url: 'https://github.com/pradyumn12j/mavenproject.git'   }}
 
 
 stage('execute unit test framework')
