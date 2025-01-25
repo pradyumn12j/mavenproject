@@ -1,7 +1,7 @@
+RUN chmod -R 777 /var/run/docker.sock
 FROM tomcat:latest
 LABEL author=Pradymn
 LABEL project_name=simple_maven_java_project.
-RUN chmod -R 777 /var/run/docker.sock
 WORKDIR /usr/local/tomcat/webapps
 COPY webapp/target/webapp.war .
 RUN chmod -R 777 /usr/local/tomcat/webapps
