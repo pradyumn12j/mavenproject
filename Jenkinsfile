@@ -4,7 +4,8 @@ pipeline
   stages
   {
     stage("GIT checkout")
-    steps{git 'https://github.com/pradyumn12j/mavenproject.git'}
+    {
+    steps{git 'https://github.com/pradyumn12j/mavenproject.git'}}
   }
   {
     stage("validattion step")
