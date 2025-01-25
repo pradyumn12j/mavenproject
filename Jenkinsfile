@@ -14,4 +14,20 @@ pipeline
 }
   }}
 }
+  {
+    stage("package step")
+    {
+    steps{withMaven(globalMavenSettingsConfig: '', jdk: 'HOME_JDK', maven: 'HOME_MAVEN', mavenSettingsConfig: '', traceability: true) {
+    sh('mvn package')
+}
+  }}
+}
+  {
+    stage("install step")
+    {
+    steps{withMaven(globalMavenSettingsConfig: '', jdk: 'HOME_JDK', maven: 'HOME_MAVEN', mavenSettingsConfig: '', traceability: true) {
+    sh('mvn install')
+}
+  }}
+}
 }
