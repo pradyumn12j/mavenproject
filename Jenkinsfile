@@ -34,7 +34,7 @@ pipeline
     stage("docker build:")
     {
       steps{
-        sh 'docker build -i pradyumnjawale/test_maven:10.25'}}}
+        sh 'docker build -t pradyumnjawale/test_maven:10.25'}}}
    {
     stage("Docker build")
     {
