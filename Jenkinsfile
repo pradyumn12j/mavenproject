@@ -33,12 +33,12 @@ pipeline
    
     stage("docker build:")
     {
-      steps{sh 'docker build -t pradyumnjawale/test_maven:11.15 .'}}
+      steps{sh 'docker build -t pradyumnjawale/test_maven:15.15 .'}}
    
     stage("Docker build")
     {
       steps{withDockerRegistry(credentialsId: 'DOCKER', url: 'https://index.docker.io/v1/') {
-     sh ' docker push pradyumnjawale/test_maven:11.15'
+     sh ' docker push pradyumnjawale/test_maven:15.15'
 }
 
       }
