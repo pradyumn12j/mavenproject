@@ -34,11 +34,9 @@ pipeline
     stage("docker build:")
     {
       steps{
-        sh 'docker build -i pradyumnjawale/test_maven:10.25'
-    }
-   }}
+        sh 'docker build -i pradyumnjawale/test_maven:10.25'}}}
    {
-    stage("Docker buiil")
+    stage("Docker build")
     {
       steps{withDockerRegistry(credentialsId: 'DOCKER', url: 'https://index.docker.io/v1/') {
      sh ' docker push pradyumnjawale/test_maven:10.25'
