@@ -1,14 +1,15 @@
 pipeline
 {
   agent any 
-  stages
   environment {
         // Define the AWS Region and ECR repository
         AWS_ACCOUNT_ID = '127214163347' // Replace with your AWS Account ID
         AWS_REGION = 'ap-southeast-1' // Change to your region
         ECR_REPOSITORY = 'pradyumnjawale' // Replace with your ECR repository name
        //MAGE_TAG = "${GIT_COMMIT}"  // Tag image with commit hash (or you can use other tag, e.g., latest)
-    
+  }
+  stages
+  
    {
     stage("GIT checkout")
     {
@@ -56,5 +57,4 @@ pipeline
             }
         }
   }
-}
 }
