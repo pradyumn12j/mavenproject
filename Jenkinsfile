@@ -69,7 +69,7 @@ pipeline
         }
     stage('docker push'){
       steps{
-        sh 'docker push 127214163347.dkr.ecr.ap-southeast-1.amazonaws.com/pradyumnjawale'
+        sh 'docker push 127214163347.dkr.ecr.ap-southeast-1.amazonaws.com/test_maven:10.15'
       }
     }
   }
