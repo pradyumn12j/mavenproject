@@ -15,6 +15,12 @@ pipeline
     sh('mvn test')
 }
   }}
+   stage('Compile step')
+   {
+    steps{withMaven(globalMavenSettingsConfig: '', jdk: 'HOME_JDK', maven: 'HOME_MAVEN', mavenSettingsConfig: '', traceability: true) {
+    sh('mvn test')
+}}
+   }
 
   
     stage("package step")
