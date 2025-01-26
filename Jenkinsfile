@@ -37,31 +37,20 @@ pipeline
 }
   }}
 
-   
-        
-    stage('Login to AWS ECR') {
-            steps {withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'awskey', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
-
-                    // Authenticate Docker to ECR using AWS CLI
-                    sh 'aws ecr get-login-password --region ap-southeast-1  | docker login --username AWS --password-stdin 127214163347.dkr.ecr.ap-southeast-1.amazonaws.com'
-                }
-            }
-        }
     stage('docker build'){
       steps {
         sh('docker build -t pradyumnjawale/test_maven:10.15 .')}
     }
-    stage('Tag Docker Image') {
-            steps {
+    stage('dockoer push') {
+            steps {withDockerRegistry(credentialsId: 'DOCKER', url: 'https://index.docker.io/v1/') {
+    // some block
+
                 
                     // Tag the Docker image with the ECR repository URI
-                    sh 'docker tag pradyumnjawale/test_maven:10.15 127214163347.dkr.ecr.ap-southeast-1.amazonaws.com/pradyumnjawale:maven_10.16'
-            }
+                   // sh 'docker tag pradyumnjawale/test_maven:10.15 127214163347.dkr.ecr.ap-southeast-1.amazonaws.com/pradyumnjawale:maven_10.16'
+                  sh 'docker push pradyumnjawale:test_mvn:10.15'    
+            }}
         }
-    stage('docker push'){
-      steps{
-        sh 'docker push 127214163347.dkr.ecr.ap-southeast-1.amazonaws.com/pradyumnjawale:maven_10.16'
-      }
-    }
+   
   }
 }
