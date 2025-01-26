@@ -9,7 +9,7 @@ pipeline
         ECR_REPOSITORY = 'pradyumnjawale' // Replace with your ECR repository name
        //MAGE_TAG = "${GIT_COMMIT}"  // Tag image with commit hash (or you can use other tag, e.g., latest)
     
-
+   {
     stage("GIT checkout")
     {
     steps{git 'https://github.com/pradyumn12j/mavenproject.git'}}
@@ -56,4 +56,5 @@ pipeline
             }
         }
   }
+}
 }
