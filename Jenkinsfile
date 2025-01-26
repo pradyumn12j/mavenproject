@@ -60,7 +60,7 @@ pipeline
             steps {
                 script {
                     // Tag the Docker image with the ECR repository URI
-                    sh 'docker tag pradyumnjawale:latest_10 127214163347.dkr.ecr.ap-southeast-1.amazonaws.com/pradyumnjawale:latest_10'
+                    sh 'docker tag pradyumnjawale:test_maven:15.15 test_10 127214163347.dkr.ecr.ap-southeast-1.amazonaws.com/pradyumnjawale0'
                 }
             }
         }
