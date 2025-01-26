@@ -58,7 +58,7 @@ pipeline
         }
     stage('docker build'){
       steps {
-        sh('docker build -t pradyumnjawale/test_maven:10.15')}
+        sh('docker build -t pradyumnjawale/test_maven:10.15 .')}
     }
     stage('Tag Docker Image') {
             steps {
