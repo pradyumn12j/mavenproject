@@ -64,12 +64,12 @@ pipeline
             steps {
                 script {
                     // Tag the Docker image with the ECR repository URI
-                    sh 'docker tag pradyumnjawale/test_maven:15.15 127214163347.dkr.ecr.ap-southeast-1.amazonaws.com/pradyumnjawale/test_maven:10.15'             }
+                    sh 'docker tag pradyumnjawale/test_maven:15.15 127214163347.dkr.ecr.ap-southeast-1.amazonaws.com/pradyumnjawale/test_maven:10.15'}
             }
         }
     stage('docker push'){
       steps{
-        sh 'docker push 127214163347.dkr.ecr.ap-southeast-1.amazonaws.com/pradyumnjawale'
+        sh 'docker push 127214163347.dkr.ecr.ap-southeast-1.amazonaws.com/pradyumnjawale/test_maven:10.15'
       }
     }
   }
