@@ -37,7 +37,7 @@ pipeline
    
     stage("Docker build")
     {
-      steps{withDockerRegistry(credentialsId: 'DOCKER', url: 'https://index.docker.io/v1/') {
+      steps{withDockerRegistry(credentialsId: 'DOCKER', url: '127214163347.dkr.ecr.ap-southeast-1.amazonaws.com/pradyumnjawale'){
      sh ' docker push pradyumnjawale/test_maven:15.15'
 }
 
