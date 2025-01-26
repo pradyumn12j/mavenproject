@@ -56,5 +56,13 @@ pipeline
                 }
             }
         }
+    stage('Tag Docker Image') {
+            steps {
+                script {
+                    // Tag the Docker image with the ECR repository URI
+                    sh 'docker tag pradyumnjawale:latest_10 127214163347.dkr.ecr.ap-southeast-1.amazonaws.com/pradyumnjawale:latest_10'
+                }
+            }
+        }
   }
 }
