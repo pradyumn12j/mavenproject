@@ -1,15 +1,6 @@
 pipeline
 {
   agent any 
-  environment {
-        // Define the AWS Region and ECR repository
-        AWS_ACCOUNT_ID = '127214163347' // Replace with your AWS Account ID
-        AWS_REGION = 'ap-southeast-1' // Change to your regio
-        AWS_ACCESS_KEY_ID = 'AKIAR3HUOCWJ7DT3MDFM'
-        AWS_SECRET_ACCESS_KEY = 'L9tRpEGFJOKzoIPQXL/i5YnJUpZ5OO6U3vqUyVUy'
-        ECR_REPOSITORY = 'pradyumnjawale' // Replace with your ECR repository name
-       //MAGE_TAG = "${GIT_COMMIT}"  // Tag image with commit hash (or you can use other tag, e.g., latest)
-  }
   stages
   
    {
@@ -43,8 +34,8 @@ pipeline
    
         
     stage('Login to AWS ECR') {
-            steps {
-                script {
+            steps {withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'awskey', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+
                     // Authenticate Docker to ECR using AWS CLI
                     sh 'aws ecr get-login-password --region ap-southeast-1  | docker login --username AWS --password-stdin 127214163347.dkr.ecr.ap-southeast-1.amazonaws.com'
                 }
