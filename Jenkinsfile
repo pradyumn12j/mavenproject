@@ -39,7 +39,7 @@ pipeline
 
     stage('docker build'){
       steps {
-        sh('docker build -t pradyumnjawale/test_maven:10.15 .')}
+        sh('docker build -t pradyumnjawale/test_maven:10.19 .')}
     }
     stage('dockoer push') {
             steps {withDockerRegistry(credentialsId: 'DOCKER', url: 'https://index.docker.io/v1/') {
@@ -48,7 +48,7 @@ pipeline
                 
                     // Tag the Docker image with the ECR repository URI
                    // sh 'docker tag pradyumnjawale/test_maven:10.15 127214163347.dkr.ecr.ap-southeast-1.amazonaws.com/pradyumnjawale:maven_10.16'
-                  sh 'docker push pradyumnjawale/test_maven:10.15'    
+                  sh 'docker push pradyumnjawale/test_maven:10.19'    
             }}
         }
    
