@@ -6,5 +6,12 @@ pipeline
     stage("Git checkout")
     {
     steps{git 'https://github.com/pradyumn12j/mavenproject.git' }}
+
+    stage ("test")
+    {
+      steps{withMaven(globalMavenSettingsConfig: '', jdk: 'HOME_JAVA', maven: 'HOME_MVN', mavenSettingsConfig: '', traceability: true) {
+    sh 'mvn test'
+}}
+    }
   }
 }
