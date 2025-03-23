@@ -16,7 +16,7 @@ pipeline
     stage ("test")
     {
       steps{withMaven(globalMavenSettingsConfig: '', jdk: 'HOME_JAVA', maven: 'HOME_MVN', mavenSettingsConfig: '', traceability: true) {
-    sh 'mvn test -D skiptests'
+    junit 'pom.xml'
 }}
     }
     stage ("build")
