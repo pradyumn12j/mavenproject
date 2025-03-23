@@ -13,16 +13,17 @@ pipeline
     sh 'mvn compile'
 }}
     }
-    stage ("test")
-    {
-      steps{withMaven(globalMavenSettingsConfig: '', jdk: 'HOME_JAVA', maven: 'HOME_MVN', mavenSettingsConfig: '', traceability: true) {
-    junit 'pom.xml'
-}}
-    }
+    
     stage ("build")
     {
       steps{withMaven(globalMavenSettingsConfig: '', jdk: 'HOME_JAVA', maven: 'HOME_MVN', mavenSettingsConfig: '', traceability: true) {
     sh 'mvn package'
+}}
+    }
+    stage ("test")
+    {
+      steps{withMaven(globalMavenSettingsConfig: '', jdk: 'HOME_JAVA', maven: 'HOME_MVN', mavenSettingsConfig: '', traceability: true) {
+    junit 'pom.xml'
 }}
     }
     stage ("verify")
