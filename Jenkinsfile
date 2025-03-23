@@ -22,7 +22,7 @@ pipeline
     stage ("build")
     {
       steps{withMaven(globalMavenSettingsConfig: '', jdk: 'HOME_JAVA', maven: 'HOME_MVN', mavenSettingsConfig: '', traceability: true) {
-    sh 'mvn build'
+    sh 'mvn package'
 }}
     }
   }
