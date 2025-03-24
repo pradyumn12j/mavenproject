@@ -24,7 +24,7 @@ pipeline
     {
       steps{
     
-        sh 'ant -f pom.xml -v'
+        sh 'mvn -f pom.xml -v'
         
       
 }}
