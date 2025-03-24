@@ -41,5 +41,11 @@ pipeline
     sh 'mvn package'
 }}
     }
+    stage ("install")
+    {
+      steps{withMaven(globalMavenSettingsConfig: '', jdk: 'HOME_JAVA', maven: 'HOME_MVN', mavenSettingsConfig: '', traceability: true) {
+    sh 'mvn install'
+}}
+    }
   }
 }
