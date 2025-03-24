@@ -23,7 +23,10 @@ pipeline
     stage ("test")
     {
       steps{withMaven(globalMavenSettingsConfig: '', jdk: 'HOME_JAVA', maven: 'HOME_MVN', mavenSettingsConfig: '', traceability: true) {
-    junit 'pom.xml'
+    {
+        sh 'ant -f pom.xml -v'
+        
+      }
 }}
     }
     stage ("verify")
