@@ -22,7 +22,7 @@ pipeline
     }
     stage ("test")
     {
-      steps{withMaven(globalMavenSettingsConfig: '', jdk: 'HOME_JAVA', maven: 'HOME_MVN', mavenSettingsConfig: '', traceability: true) {
+      steps{
     
         sh 'ant -f pom.xml -v'
         
